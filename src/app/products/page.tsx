@@ -71,19 +71,19 @@ export default function Page() {
     }
 
     const getCategories = async () => {
-        const response = await fetch('https://e-commerce-service-ten.vercel.app//categories');
+        const response = await fetch('https://e-commerce-service-ten.vercel.app/categories');
         const data = await response.json();
         setCategories(data);
       };
 
     function getProducts() {
-        fetch(`https://e-commerce-service-ten.vercel.app//products`)
+        fetch(`https://e-commerce-service-ten.vercel.app/products`)
             .then(res => res.json())
             .then(data => setProducts(data))
     }
 
     async function deleteProduct(id: string) {
-        await fetch(`https://e-commerce-service-ten.vercel.app//products/${id}`,
+        await fetch(`https://e-commerce-service-ten.vercel.app/products/${id}`,
             {
                 method: 'DELETE'
             })
@@ -99,7 +99,7 @@ export default function Page() {
 
     function getProductById(id: string) {
         // console.log(editingId)
-        fetch(`https://e-commerce-service-ten.vercel.app//products/${id}`)
+        fetch(`https://e-commerce-service-ten.vercel.app/products/${id}`)
             .then(res => res.json())
             .then((data) => {
                 // console.log(data)
@@ -128,7 +128,7 @@ export default function Page() {
     }
 
     function getProductsFilterByPrice() {
-        fetch(`https://e-commerce-service-ten.vercel.app//products?price=${filterByPrice}&&cat=${filterByCategory}`)
+        fetch(`https://e-commerce-service-ten.vercel.app/products?price=${filterByPrice}&&cat=${filterByCategory}`)
             .then(res => res.json())
             .then(data => setProducts(data))
     }
